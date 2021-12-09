@@ -4,12 +4,14 @@ const express = require('express')
 const app = express()
 var path = require('path');
 const MongoClient = require('mongodb').MongoClient
-const uri = 'mongodb://localhost:27017'
+const uri = 'mongodb+srv://adz:adzapps@cluster0.scnho.mongodb.net/testebd'
 const ObjectId = require('mongodb').ObjectId
+
+const PORT = process.env.PORT || 3000;
 
 /*MongoDB endereço
 local: 'mongodb://localhost:27017'
-
+remoto: "mongodb+srv://adz:adzapps@cluster0.scnho.mongodb.net/testebd"
 */
 
 //Configurando o EJS
@@ -29,8 +31,8 @@ MongoClient.connect(uri, (err, client) => {
     //colocando o nosso banco
     db = client.db('testebd')
 
-    app.listen(3000, () => {
-        console.log("Servidor rodando tranquilo")
+    app.listen(PORT, () => {
+        console.log("Servidor rodando tranquilo" + PORT)
     })
 
 })
